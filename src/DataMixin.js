@@ -23,7 +23,7 @@ module.exports = {
 
   getDefaultProps() {
     return {
-      initialPageLength: 10,
+      initialPageLength: 5,
       pageLengthMax: 20,
       pageLengthOptions: [ 5, 10, 20 ],
       filters: {
@@ -68,22 +68,37 @@ module.exports = {
   buildPage() {
     var {data, currentPage, pageLength} = this.state;
     var start = pageLength * currentPage;
+    var end = start + pageLength;
 
     return {
-      data: data.slice(start, start + pageLength),
+      data: data.slice(start, end),
+      dataLength: data.length,
       currentPage: currentPage,
+      startIndex: start,
+      endIndex: end,
       totalPages: Math.ceil(data.length / pageLength)
     };
   },
 
   onChangePage(pageNumber) {
-    this.setState({ currentPage: pageNumber });
+    var pageLength = this.state.pageLength;
+    var start = pageLength * pageNumber;
+    var end = start + pageLength;
+
+    this.setState({
+      currentPage: pageNumber,
+      startIndex: start,
+      endIndex: end
+    });
   },
 
   onPageLengthChange(value) {
     var newPageLength = +value;
     var {currentPage, pageLength} = this.state;
     var newPage = Math.floor((currentPage * pageLength) / newPageLength);
+
+    var start = newPageLength * currentPage;
+    var end = start + newPageLength;
 
     this.setState({
       pageLength: newPageLength,

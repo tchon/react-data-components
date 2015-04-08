@@ -2,8 +2,9 @@
 
 var React = require('react');
 var Table = require('./Table');
-var Pagination = require('./Pagination');
+var PageItems = require('./PageItems');
 var PageSize = require('./PageSize');
+var Pagination = require('./Pagination');
 var SearchField = require('./SearchField');
 
 var DataMixin = require('./DataMixin');
@@ -41,16 +42,29 @@ var DataTable = React.createClass({
         />
         <div className="row">
           <div className="col-xs-6">
-            <PageSize
-              id="page-size"
-              className="page-size pull-left"
-              label="Show:"
-              value={this.state.pageLength}
-              max={this.props.pageLengthMax}
-              options={this.props.pageLengthOptions}
-              onChange={this.onPageLengthChange}
-            />
-          </div>
+            <div className="row">
+              <div className="col-xs-12 ns-page-items-size">
+                <PageItems
+                  id="page-items"
+                  className="page-items pull-left"
+                  dataLength={page.dataLength}
+                  startIndex={page.startIndex}
+                  endIndex={page.endIndex}
+                />
+                <PageSize
+                  id="page-size"
+                  className="page-size pull-left"
+                  label="Show:"
+                  value={this.state.pageLength}
+                  max={this.props.pageLengthMax}
+                  options={this.props.pageLengthOptions}
+                  onChange={this.onPageLengthChange}
+                />
+              </div>
+              </div>
+            </div>
+
+
           <div className="col-xs-6">
             <Pagination
               className="pagination pagination-sm pull-right ns-pagination-top"
