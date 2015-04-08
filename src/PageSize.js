@@ -5,24 +5,19 @@ var React = require('react');
 class PageSize {
 
   constructor() {
-    this.onClick = this.onClick.bind(this);
-    this.isSelected = this.isSelected.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
-  onClick(e) {
+  onChange(e) {
     this.props.onChange(e.target.textContent);
-  }
-
-  isSelected(size) {
-    //console.log('>> this.props', this.props);
-    return size == 5 ? 'selected' : 'inactive';
   }
 
   render() {
     var self = this;
     var {id, label, options, value} = this.props;
+    var isActive = (size) => size === value ? "active" : "";
     var mappedOpts =
-      options.map((size) => <span><a className={this.isSelected(size)}>{size}</a></span>);
+      options.map((size) => <li role="presentation" className={isActive(size)}><a className="ns-page-size-option" href="#" onClick={self.onChange}>{size}</a></li>);
 
     return (
       <div className="row">
@@ -40,15 +35,7 @@ class PageSize {
               <span className="ns-spacer-horizontal"></span>
             </div>
             <ul className="nav nav-pills pull-left">
-              <li role="presentation" className="active">
-                <a className="ns-page-size-option" href="#">5</a>
-              </li>
-              <li role="presentation" className="">
-                <a className="ns-page-size-option" href="#">10</a>
-              </li>
-              <li role="presentation" className="">
-                <a className="ns-page-size-option" href="#">20</a>
-              </li>
+            {mappedOpts}
             </ul>
           </div>
         </div>
