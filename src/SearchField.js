@@ -14,15 +14,20 @@ class SearchField {
 
   render() {
     return (
-      <div>
-        <label htmlFor={this.props.id}>{this.props.label}</label>
-        <input
-          id={this.props.id}
-          type="search"
-          value={this.props.value}
-          onChange={this.onChange}
-        />
-      </div>
+      <form role="form" className={this.props.className}>
+        <div className="form-group has-feedback">
+          <input
+            id={this.props.id}
+            className="form-control"
+            describedby="sizing-addon2"
+            type="text"
+            value={this.props.value}
+            placeholder={this.props.placeholder}
+            onChange={this.onChange}
+          />
+          <i className="form-control-feedback glyphicon glyphicon-search"></i>
+        </div>
+      </form>
     );
   }
 

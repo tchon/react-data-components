@@ -17,17 +17,20 @@ var DataTable = React.createClass({
 
     return (
       <div className={this.props.className}>
-        <div className="row"></div>
+        <div className="row ns-spacer-vertical"></div>
         <div className="row">
-          <div className="col-xs-4">
+          <div className="col-xs-8"></div>
+          <div className="col-xs-4 pull-right">
             <SearchField
               id="search-field"
-              label="Search:"
+              className="input-group pull-right"
+              placeholder="Search Table"
               value={this.state.filterValues.globalSearch}
               onChange={this.onFilter.bind(this, 'globalSearch')}
             />
           </div>
         </div>
+        <div className="row ns-spacer-vertical"></div>
         <Table
           className="table table-bordered"
           dataArray={page.data}
@@ -50,7 +53,7 @@ var DataTable = React.createClass({
           </div>
           <div className="col-xs-6">
             <Pagination
-              className="pagination pagination-sm pull-right"
+              className="pagination pagination-sm pull-right ns-pagination-top"
               currentPage={page.currentPage}
               totalPages={page.totalPages}
               onChangePage={this.onChangePage}
