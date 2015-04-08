@@ -25,9 +25,10 @@ function buildTable(data) {
       keys={[ 'NAME', 'OUTLET TYPE', 'STREET ADDRESS' ]}
       columns={tableColumns}
       initialData={data}
-      initialPageLength={5}
+      initialPageLength={15}
       initialSortBy={{ prop: 'CITY', order: 'descending' }}
-      pageLengthOptions={[ 5, 20, 50 ]}
+      pageLengthOptions={[ 15, 50, 100 ]}
+      pageLengthMax={100}
     />
   );
 }
