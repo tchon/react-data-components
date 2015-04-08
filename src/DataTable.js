@@ -41,7 +41,7 @@ var DataTable = React.createClass({
           onSort={this.onSort}
         />
         <div className="row">
-          <div className="col-xs-6">
+          <div className="col-xs-7">
             <div className="row">
               <div className="col-xs-12 ns-page-items-size">
                 <PageItems
@@ -65,7 +65,7 @@ var DataTable = React.createClass({
             </div>
 
 
-          <div className="col-xs-6">
+          <div className="col-xs-5">
             <Pagination
               className="pagination pagination-sm pull-right ns-pagination-top"
               currentPage={page.currentPage}
