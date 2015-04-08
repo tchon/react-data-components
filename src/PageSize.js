@@ -32,7 +32,6 @@ class PageSize {
               <span className="ns-pipe-separator">|</span>
               <span className="ns-spacer-horizontal"></span>
               <span className="ns-label">Show:</span>
-              <span className="ns-spacer-horizontal"></span>
             </div>
             <ul className="nav nav-pills pull-left">
             {mappedOpts}
