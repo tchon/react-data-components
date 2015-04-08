@@ -59,11 +59,3 @@ class PageSize {
 }
 
 module.exports = PageSize;
-
-//      <div>
-//        <div className="vertical-split">|</div>
-//        <label htmlFor={id}>{label}</label>
-//        {options.map(function(size) {
-//          return <a role="button" href="#" className={self.isSelected(size)} onClick={self.onClick}><span className="fa">{size}</span></a>;
-//        })}
-//      </div>
