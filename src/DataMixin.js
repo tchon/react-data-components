@@ -24,6 +24,7 @@ module.exports = {
   getDefaultProps() {
     return {
       initialPageLength: 10,
+      pageLengthMax: 20,
       pageLengthOptions: [ 5, 10, 20 ],
       filters: {
         globalSearch: {

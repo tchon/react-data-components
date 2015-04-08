@@ -3,7 +3,7 @@
 var React = require('react');
 var Table = require('./Table');
 var Pagination = require('./Pagination');
-var SelectField = require('./SelectField');
+var PageSize = require('./PageSize');
 var SearchField = require('./SearchField');
 
 var DataMixin = require('./DataMixin');
@@ -17,6 +17,7 @@ var DataTable = React.createClass({
 
     return (
       <div className={this.props.className}>
+        <div className="row"></div>
         <div className="row">
           <div className="col-xs-4">
             <SearchField
@@ -36,18 +37,20 @@ var DataTable = React.createClass({
           onSort={this.onSort}
         />
         <div className="row">
-          <div className="col-xs-4">
-            <SelectField
-              id="page-menu"
-              label="Page size:"
+          <div className="col-xs-6">
+            <PageSize
+              id="page-size"
+              className="page-size pull-left"
+              label="Show:"
               value={this.state.pageLength}
+              max={this.props.pageLengthMax}
               options={this.props.pageLengthOptions}
               onChange={this.onPageLengthChange}
             />
           </div>
-          <div className="col-xs-8">
+          <div className="col-xs-6">
             <Pagination
-              className="pagination pull-right"
+              className="pagination pagination-sm pull-right"
               currentPage={page.currentPage}
               totalPages={page.totalPages}
               onChangePage={this.onChangePage}
