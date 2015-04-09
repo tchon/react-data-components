@@ -9,6 +9,15 @@
     "pagination"
   ],
   "author": "Carlos Rocha",
+  "contributors": [{
+    "name" : "Carlos Rocha",
+    "email": "carlosarochafl@gmail.com",
+    "url": "https://github.com/carlosrocha"
+  }, {
+    "name" : "Timothy Chon",
+    "email": "devchon@gmail.com",
+    "url": "https://github.com/tchon"
+  }],
   "license": "MIT",
   "main": "./lib/index",
   "files": [
